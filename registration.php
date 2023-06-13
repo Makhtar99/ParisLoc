@@ -33,6 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($password !== $passwordRepeat) {
         array_push($errors, "Passwords do not match");
     }
+    require_once "database.php";
+    $sql = "SELECT * FROM users WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$username]);
+    $row_count = $stmt->rowCount(); 
+
+    if ($row_count > 0) {
+        array_push($errors, "username already exists");
+    }
+
 
     require_once "database.php";
     $sql = "SELECT * FROM users WHERE email = ?";
