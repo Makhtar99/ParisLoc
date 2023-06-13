@@ -6,7 +6,9 @@ if (isset($_SESSION["user"])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $fullName = $_POST["fullname"];
+    $username = $_POST["username"];
+    $Name = $_POST["Name"];
+    $Familyname = $_POST["Familyname"];
     $email = $_POST["email"];
     $password = $_POST["password"];
     $passwordRepeat = $_POST["repeat_password"];
@@ -14,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
     $errors = [];
 
-    if (empty($fullName) || empty($email) || empty($password) || empty($passwordRepeat)) {
+    if (empty($username) || empty($Name) || empty($Familyname) || empty($email) || empty($password) || empty($passwordRepeat)) {
         array_push($errors, "All fields are required"); 
     }
 
@@ -47,10 +49,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             echo "<div class='alert alert-danger'> $error</div>";
         }
     } else {
-        $sql = "INSERT INTO users (full_name, email, password) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO users (username, name, familyname, email, password) VALUES (?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$fullName, $email, $passwordHash]);
+        $stmt->execute([$username, $Name, $Familyname, $email, $passwordHash]);
         echo "<div class='alert alert-success'> You are registered successfully.</div>";
+
     }
 }
 ?>
@@ -65,25 +68,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <form action="registration.php" method="post">
-            <div class="form-group">
-                <input type="text" class="form-control" name="fullname" placeholder="Full Name">
-            </div>
-            <div class="form-group">
-                <input type="email" class="form-control" name="email" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" name="repeat_password" placeholder="Repeat Password">
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Register" name="submit">
-            </div>
-        </form>
-        <div><p>Already registered <a href="login.php">login here</a></p></div>
-    </div>
+<div class="container">
+    <form action="registration.php" method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" name="username" placeholder="username">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="Name" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="Familyname" placeholder="Familyname">
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="repeat_password" placeholder="Repeat Password">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Register" name="submit">
+        </div>
+    </form>
+    <div><p>Already registered <a href="login.php">login here</a></p></div>
+</div>
+
 </body>
 </html>
