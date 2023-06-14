@@ -2,8 +2,8 @@
 
 $hostName = "localhost";
 $dbUser = "root";
-$dbPassword = "";
-$dbName = "login_registre";
+$dbPassword = "root";
+$dbName = "Airbnb";
 
 
 try {
