@@ -35,7 +35,6 @@ if ($result->num_rows > 0) {
         echo "<br>";
     }
 } else {
-    // Afficher des résultats approchants
     $approxSql = "SELECT * FROM Hébergements ORDER BY RAND() LIMIT 6";
     $approxResult = $conn->query($approxSql);
 
