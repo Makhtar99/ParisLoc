@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <input type="password" class="form-control" name="password" placeholder="Password">
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login" name="submit" >
+               <input type="submit" class="btn btn-primary" value="Login" name="submit">
             </div>
         </form>
         <div><p>Not registered yet? <a href="registration.php">Register here</a></p></div>
