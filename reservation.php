@@ -21,7 +21,6 @@
     </form>
 
 <?php
-// Connexion à la base de données
 $servername = "localhost";
 $username = "root";
 $password = "root";
@@ -33,24 +32,21 @@ if ($conn->connect_error) {
     die("Échec de la connexion à la base de données : " . $conn->connect_error);
 }
 
-// Vérifier si l'utilisateur est connecté
 session_start();
 
 if (!isset($_SESSION['user'])) {
     die("Veuillez vous connecter pour effectuer une réservation.");
 }
 
-// Traitement du formulaire de réservation
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Récupérer les données du formulaire
     $dateDépart = $_POST['Date_depart'];
     $dateFin = $_POST['Date_arrivée'];
     $nombrePersonnes = $_POST['Nombre_personnes'];
-    $utilisateurConnecte = $_SESSION['user'];
+    $utilisateurConnecte = $_SESSION['user']['id'];
 
-    // Insérer la réservation dans la base de données
-    $sql = "INSERT INTO Réservations ( Date_depart, Date_arrivée, Nombre_personnes)
-            VALUES ( '$dateDépart', '$dateFin', '$nombrePersonnes')";
+
+    $sql = "INSERT INTO Réservations ( ID_utilisateur, Date_depart, Date_arrivée, Nombre_personnes)
+            VALUES ( '$utilisateurConnecte', '$dateDépart', '$dateFin', '$nombrePersonnes')";
             if ($conn->query($sql) === TRUE) {
                 echo "Réservation effectuée avec succès.";
             } else {
