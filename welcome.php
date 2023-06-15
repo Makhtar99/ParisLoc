@@ -16,10 +16,11 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<div>";
-        echo "<h2>ID : " . $row["Titre"] . "</h2>";
-        echo "<p>Nom : " . $row["Description"] . "</p>";
-        echo "<p>Type : " . $row["Commodités"] . "</p>";
-        echo "<p>Adresse : " . $row["localisation"] . "</p>";
+        echo "<h2>Nom : " . $row["Titre"] . "</h2>";
+        echo "<p>Debut : " . $row["Date_depart"] . "</p>";
+        echo "<p>fin : " . $row["Date_arrivée"] . "</p>";
+        echo "<p>Arrondissement: " . $row["localisation"] . "</p>";
+        echo "<p>Places : " . $row["capacite"] . "</p>";
         echo "</div>";
         echo "<br>";
     }
