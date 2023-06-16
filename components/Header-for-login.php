@@ -15,12 +15,12 @@
     src: url("MonteCarlo/MonteCarlo-Regular.ttf");
   }
 header{
-    width: 100%;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 7%;
     display: flex;
     height: 100px;
     align-items: center;
-    padding: 0px 15px;
-    border: 1px solid black;
 }
     </style>
 </head>
