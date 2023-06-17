@@ -20,11 +20,11 @@
 
     session_start();
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (!isset($_SESSION['user'])) {
-            die("Veuillez vous connecter pour effectuer une réservation.");
-        }
+    if (!isset($_SESSION['user'])) {
+        die("Veuillez vous connecter pour effectuer une réservation ou ajouter un avis.");
+    }
 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dateDépart = $_POST['Date_depart'];
         $dateFin = $_POST['Date_arrivée'];
         $nombrePersonnes = $_POST['Nombre_personnes'];
@@ -46,6 +46,23 @@
             }
         } else {
             echo "Le logement n'est pas disponible aux dates sélectionnées.";
+        }
+
+        // Traitement du commentaire et de la note
+        if (isset($_POST['commentaire']) && isset($_POST['note'])) {
+            $commentaire = $_POST['commentaire'];
+            $note = $_POST['note'];
+            $logementId = $_GET['id'];
+            $utilisateurConnecte = $_SESSION['user']['username'];
+
+            $commentaireSql = "INSERT INTO Commentaires (ID_utilisateur, ID_hébergement, Contenu_commentaire, Note)
+                VALUES ('$utilisateurConnecte', '$logementId', '$commentaire', '$note')";
+
+            if ($conn->query($commentaireSql) === TRUE) {
+                echo "Commentaire ajouté avec succès.";
+            } else {
+                echo "Erreur lors de l'ajout du commentaire : " . $conn->error;
+            }
         }
     }
 
@@ -76,6 +93,38 @@
             echo "<input type='number' id='Nombre_personnes' name='Nombre_personnes' required><br>";
             echo "<input type='submit' value='Réserver'>";
             echo "</form>";
+
+            // Formulaire de commentaire et de note
+            echo "<h3>Ajouter un avis :</h3>";
+            echo "<form method='POST' action='?id=" . $row["ID"] . "'>";
+            echo "<label for='commentaire'>Commentaire :</label><br>";
+            echo "<textarea id='commentaire' name='commentaire' rows='4' cols='50' required></textarea><br>";
+            echo "<label for='note'>Note :</label>";
+            echo "<select id='note' name='note' required>";
+            echo "<option value='1'>1 étoile</option>";
+            echo "<option value='2'>2 étoiles</option>";
+            echo "<option value='3'>3 étoiles</option>";
+            echo "<option value='4'>4 étoiles</option>";
+            echo "<option value='5'>5 étoiles</option>";
+            echo "</select><br>";
+            echo "<input type='submit' value='Envoyer'>";
+            echo "</form>";
+
+            // Affichage des commentaires
+            $commentairesSql = "SELECT * FROM Commentaires WHERE ID_hébergement = '$logementId'";
+            $commentairesResult = $conn->query($commentairesSql);
+
+            if ($commentairesResult->num_rows > 0) {
+                echo "<h3>Commentaires :</h3>";
+                while ($commentaireRow = $commentairesResult->fetch_assoc()) {
+                    echo "<p>Auteur : " . $commentaireRow['ID_utilisateur'] . "</p>";
+                    echo "<p>Commentaire : " . $commentaireRow['Contenu_commentaire'] . "</p>";
+                    echo "<p>Note : " . $commentaireRow['Note'] . " étoile(s)</p>";
+                    echo "<hr>";
+                }
+            } else {
+                echo "<p>Aucun commentaire pour le moment.</p>";
+            }
         } else {
             echo "Logement introuvable.";
         }
@@ -87,6 +136,10 @@
     ?>
 </body>
 </html>
+
+
+
+
 
 
 
