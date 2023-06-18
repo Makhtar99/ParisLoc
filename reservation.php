@@ -25,30 +25,6 @@
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $dateDépart = $_POST['Date_depart'];
-        $dateFin = $_POST['Date_arrivée'];
-        $nombrePersonnes = $_POST['Nombre_personnes'];
-        $utilisateurConnecte = $_SESSION['user']['id'];
-        $logementId = $_GET['id'];
-
-        // Vérification des disponibilités
-        $dispoSql = "SELECT * FROM Hébergements WHERE ID = '$logementId' AND Date_depart <= '$dateDépart' AND Date_arrivée >= '$dateFin'";
-        $dispoResult = $conn->query($dispoSql);
-
-        if ($dispoResult->num_rows > 0) {
-            $sql = "INSERT INTO Réservations (ID_utilisateur, Date_depart, Date_arrivée, Nombre_personnes, ID_hébergement)
-                VALUES ('$utilisateurConnecte', '$dateDépart', '$dateFin', '$nombrePersonnes', '$logementId')";
-
-            if ($conn->query($sql) === TRUE) {
-                echo "Réservation effectuée avec succès.";
-            } else {
-                echo "Erreur lors de la réservation : " . $conn->error;
-            }
-        } else {
-            echo "Le logement n'est pas disponible aux dates sélectionnées.";
-        }
-
-        // Traitement du commentaire et de la note
         if (isset($_POST['commentaire']) && isset($_POST['note'])) {
             $commentaire = $_POST['commentaire'];
             $note = $_POST['note'];
@@ -136,6 +112,7 @@
     ?>
 </body>
 </html>
+
 
 
 
