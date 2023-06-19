@@ -24,21 +24,44 @@
         die("Veuillez vous connecter pour effectuer une réservation ou ajouter un avis.");
     }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['commentaire']) && isset($_POST['note'])) {
-            $commentaire = $_POST['commentaire'];
-            $note = $_POST['note'];
-            $logementId = $_GET['id'];
-            $utilisateurConnecte = $_SESSION['user']['username'];
+    if (isset($_POST['reserver'])) {
+        $dateDépart = $_POST['Date_depart'];
+        $dateFin = $_POST['Date_arrivée'];
+        $nombrePersonnes = $_POST['Nombre_personnes'];
+        $utilisateurConnecte = $_SESSION['user'];
+        $logementId = $_GET['id'];
 
-            $commentaireSql = "INSERT INTO Commentaires (ID_utilisateur, ID_hébergement, Contenu_commentaire, Note)
-                VALUES ('$utilisateurConnecte', '$logementId', '$commentaire', '$note')";
+        // Vérification des disponibilités
+        $dispoSql = "SELECT * FROM Hébergements WHERE ID = '$logementId' AND Date_depart <= '$dateDépart' AND Date_arrivée >= '$dateFin'";
+        $dispoResult = $conn->query($dispoSql);
 
-            if ($conn->query($commentaireSql) === TRUE) {
-                echo "Commentaire ajouté avec succès.";
+        if ($dispoResult->num_rows > 0) {
+            $sql = "INSERT INTO Réservations (ID_utilisateur, Date_depart, Date_arrivée, Nombre_personnes, ID_hébergement)
+                VALUES ('$utilisateurConnecte', '$dateDépart', '$dateFin', '$nombrePersonnes', '$logementId')";
+
+            if ($conn->query($sql) === TRUE) {
+                echo "Réservation effectuée avec succès.";
             } else {
-                echo "Erreur lors de l'ajout du commentaire : " . $conn->error;
+                echo "Erreur lors de la réservation : " . $conn->error;
             }
+        } else {
+            echo "Le logement n'est pas disponible aux dates sélectionnées.";
+        }
+    }
+
+    if (isset($_POST['commenter'])) {
+        $commentaire = $_POST['commentaire'];
+        $note = $_POST['note'];
+        $logementId = $_GET['id'];
+        $utilisateurConnecte = $_SESSION['user']['username'];
+
+        $commentaireSql = "INSERT INTO Commentaires (ID_utilisateur, ID_hébergement, Contenu_commentaire, Note)
+            VALUES ('$utilisateurConnecte', '$logementId', '$commentaire', '$note')";
+
+        if ($conn->query($commentaireSql) === TRUE) {
+            echo "Commentaire ajouté avec succès.";
+        } else {
+            echo "Erreur lors de l'ajout du commentaire : " . $conn->error;
         }
     }
 
@@ -60,19 +83,21 @@
             echo "<p>Arrondissement : " . $row["localisation"] . "</p>";
             echo "<p>Places : " . $row["capacite"] . "</p>";
 
-            echo "<form method='POST' action='?id=" . $row["ID"] . "'>";
+            echo "<form method='POST' action=''>";
+            echo "<input type='hidden' name='reserver' value='true'>";
             echo "<label for='Date_depart'>Date d'arrivée :</label>";
             echo "<input type='date' id='Date_depart' name='Date_depart' required><br>";
             echo "<label for='Date_arrivée'>Date de fin :</label>";
             echo "<input type='date' id='Date_arrivée' name='Date_arrivée' required><br>";
             echo "<label for='Nombre_personnes'>Nombre de personnes :</label>";
             echo "<input type='number' id='Nombre_personnes' name='Nombre_personnes' required><br>";
-            echo "<input type='submit' value='Réserver'>";
+            echo "<button type='submit'>Réserver</button>";
             echo "</form>";
 
             // Formulaire de commentaire et de note
             echo "<h3>Ajouter un avis :</h3>";
-            echo "<form method='POST' action='?id=" . $row["ID"] . "'>";
+            echo "<form method='POST' action=''>";
+            echo "<input type='hidden' name='commenter' value='true'>";
             echo "<label for='commentaire'>Commentaire :</label><br>";
             echo "<textarea id='commentaire' name='commentaire' rows='4' cols='50' required></textarea><br>";
             echo "<label for='note'>Note :</label>";
@@ -83,7 +108,7 @@
             echo "<option value='4'>4 étoiles</option>";
             echo "<option value='5'>5 étoiles</option>";
             echo "</select><br>";
-            echo "<input type='submit' value='Envoyer'>";
+            echo "<button type='submit'>Envoyer</button>";
             echo "</form>";
 
             // Affichage des commentaires
@@ -112,6 +137,7 @@
     ?>
 </body>
 </html>
+
 
 
 
