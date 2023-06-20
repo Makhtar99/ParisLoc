@@ -53,15 +53,23 @@
         $commentaire = $_POST['commentaire'];
         $note = $_POST['note'];
         $logementId = $_GET['id'];
-        $utilisateurConnecte = $_SESSION['user']['username'];
+        $utilisateurConnecte = $_SESSION['user'];
 
-        $commentaireSql = "INSERT INTO Commentaires (ID_utilisateur, ID_hébergement, Contenu_commentaire, Note)
-            VALUES ('$utilisateurConnecte', '$logementId', '$commentaire', '$note')";
+        // Vérification de la réservation
+        $reservationSql = "SELECT * FROM Réservations WHERE ID_utilisateur = '$utilisateurConnecte' AND ID_hébergement = '$logementId'";
+        $reservationResult = $conn->query($reservationSql);
 
-        if ($conn->query($commentaireSql) === TRUE) {
-            echo "Commentaire ajouté avec succès.";
+        if ($reservationResult->num_rows > 0) {
+            $commentaireSql = "INSERT INTO Commentaires (ID_utilisateur, ID_hébergement, Contenu_commentaire, Note)
+                VALUES ('$utilisateurConnecte', '$logementId', '$commentaire', '$note')";
+
+            if ($conn->query($commentaireSql) === TRUE) {
+                echo "Commentaire ajouté avec succès.";
+            } else {
+                echo "Erreur lors de l'ajout du commentaire : " . $conn->error;
+            }
         } else {
-            echo "Erreur lors de l'ajout du commentaire : " . $conn->error;
+            echo "Vous devez d'abord réserver ce logement pour laisser un commentaire.";
         }
     }
 
@@ -120,13 +128,13 @@
             echo "</form>";
 
             // Affichage des commentaires
-            $commentairesSql = "SELECT * FROM Commentaires WHERE ID_hébergement = '$logementId'";
+            $commentairesSql = "SELECT c.Contenu_commentaire, c.Note, u.username FROM Commentaires c INNER JOIN users u ON c.ID_utilisateur = u.id WHERE c.ID_hébergement = '$logementId'";
             $commentairesResult = $conn->query($commentairesSql);
 
             if ($commentairesResult->num_rows > 0) {
                 echo "<h3>Commentaires :</h3>";
                 while ($commentaireRow = $commentairesResult->fetch_assoc()) {
-                    echo "<p>Auteur : " . $commentaireRow['ID_utilisateur'] . "</p>";
+                    echo "<p>Auteur : " . $commentaireRow['username'] . "</p>";
                     echo "<p>Commentaire : " . $commentaireRow['Contenu_commentaire'] . "</p>";
                     echo "<p>Note : " . $commentaireRow['Note'] . "</p>";
                     echo "<hr>";
@@ -144,6 +152,8 @@
 
 </body>
 </html>
+
+
 
 
 
