@@ -83,16 +83,24 @@
             echo "<p>Arrondissement : " . $row["localisation"] . "</p>";
             echo "<p>Places : " . $row["capacite"] . "</p>";
 
-            echo "<form method='POST' action=''>";
-            echo "<input type='hidden' name='reserver' value='true'>";
-            echo "<label for='Date_depart'>Date d'arrivée :</label>";
-            echo "<input type='date' id='Date_depart' name='Date_depart' required><br>";
-            echo "<label for='Date_arrivée'>Date de fin :</label>";
-            echo "<input type='date' id='Date_arrivée' name='Date_arrivée' required><br>";
-            echo "<label for='Nombre_personnes'>Nombre de personnes :</label>";
-            echo "<input type='number' id='Nombre_personnes' name='Nombre_personnes' required><br>";
-            echo "<button type='submit'>Réserver</button>";
-            echo "</form>";
+            // Vérification de la réservation
+            $reservationSql = "SELECT * FROM Réservations WHERE ID_hébergement = '$logementId'";
+            $reservationResult = $conn->query($reservationSql);
+
+            if ($reservationResult->num_rows > 0) {
+                echo "<p>Logement déjà réservé.</p>";
+            } else {
+                echo "<form method='POST' action=''>";
+                echo "<input type='hidden' name='reserver' value='true'>";
+                echo "<label for='Date_depart'>Date d'arrivée :</label>";
+                echo "<input type='date' id='Date_depart' name='Date_depart' required><br>";
+                echo "<label for='Date_arrivée'>Date de fin :</label>";
+                echo "<input type='date' id='Date_arrivée' name='Date_arrivée' required><br>";
+                echo "<label for='Nombre_personnes'>Nombre de personnes :</label>";
+                echo "<input type='number' id='Nombre_personnes' name='Nombre_personnes' required><br>";
+                echo "<button type='submit'>Réserver</button>";
+                echo "</form>";
+            }
 
             // Formulaire de commentaire et de note
             echo "<h3>Ajouter un avis :</h3>";
@@ -120,7 +128,7 @@
                 while ($commentaireRow = $commentairesResult->fetch_assoc()) {
                     echo "<p>Auteur : " . $commentaireRow['ID_utilisateur'] . "</p>";
                     echo "<p>Commentaire : " . $commentaireRow['Contenu_commentaire'] . "</p>";
-                    echo "<p>Note : " . $commentaireRow['Note'] . " étoile(s)</p>";
+                    echo "<p>Note : " . $commentaireRow['Note'] . "</p>";
                     echo "<hr>";
                 }
             } else {
@@ -129,14 +137,14 @@
         } else {
             echo "Logement introuvable.";
         }
-    } else {
-        echo "Aucun logement sélectionné.";
     }
 
     $conn->close();
     ?>
+
 </body>
 </html>
+
 
 
 
