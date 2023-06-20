@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION["user"])) {
-   header("Location: reservation.php");
+   header("Location: welcome.php");
    exit;
 }
 
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($user && password_verify($password, $user["password"])) {
         $_SESSION["user"] = $user;
-        header("Location: reservation.php");
+        header("Location: welcome.php");
         exit;
     } else {
         echo "<div class='alert alert-danger'>Invalid email or password</div>";
