@@ -96,6 +96,8 @@
             ?>
             <h2>Nom : <?php echo $row["Titre"]; ?></h2>
             <img src="<?php echo $row["Image"]; ?>" alt="Image du logement"><br>
+            <img src="<?php echo $row["Image"]; ?>" alt="Image du logement"><br>
+            <img src="<?php echo $row["Image"]; ?>" alt="Image du logement"><br>
             <p>Description : <?php echo $row["Description"]; ?></p>
             <p>Commodités : <?php echo $row["Commodités"]; ?></p>
             <p>Règles de la maison : <?php echo $row["Règles_de_la_maison"]; ?></p>

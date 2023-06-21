@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <section class="Creation ">
         <div class="signup" >
             <div class="create">
-                <ion-icon  class="return" name="arrow-back-outline"></ion-icon>
+                <ion-icon  class="return" name="arrow-back-outline"onclick="window.location.href = 'login.php';"></ion-icon>
                 <h2>Création de compte</h2>
             </div>
             <form action="signup.php" method="post">
@@ -124,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <div>
                 <label style="font-size: 18px;">Compte existant</label>
             </div><br>
-            <button  class="button-connect-fake "><a href="Login.php">Se connecter</a></button>
+            <button  class="button-connect-fake " onclick="window.location.href = 'login.php';">Se connecter</button>
         </div>
     </section>
 

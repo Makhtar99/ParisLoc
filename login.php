@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    require_once "database.php";
+    require_once "database/database.php";
     $sql = "SELECT * FROM users WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$email]);
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <div>
                 <label style="font-size: 18px;">Compte existant</label>
             </div><br>
-            <button href='Signup.php' class="button-log-fake"><a href="Signup.php">S'inscrire</a></button>
+            <button class="button-log-fake" onclick="window.location.href = 'signup.php';">S'inscrire</button>
         </div>
     </section>
 
