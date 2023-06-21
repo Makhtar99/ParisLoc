@@ -34,6 +34,7 @@
             ?>
             <div>
                 <h2><a href='reservation.php?id=<?php echo $row["ID"]; ?>'><?php echo $row["Titre"]; ?></a></h2>
+                <img src="<?php echo $row["Image"]; ?>" alt="Image du logement"><br>
                 <p>Début : <?php echo $row["Date_depart"]; ?></p>
                 <p>Fin : <?php echo $row["Date_arrivée"]; ?></p>
                 <p>Arrondissement : <?php echo $row["localisation"]; ?></p>
@@ -51,6 +52,7 @@
                 ?>
                 <div>
                     <h2><a href='reservation.php?id=<?php echo $row["ID"]; ?>'><?php echo $row["Titre"]; ?></a></h2>
+                    <img src="<?php echo $row["Image"]; ?>" alt="Image du logement"><br>
                     <p>Début : <?php echo $row["Date_depart"]; ?></p>
                     <p>Fin : <?php echo $row["Date_arrivée"]; ?></p>
                     <p>Arrondissement : <?php echo $row["localisation"]; ?></p>
@@ -68,4 +70,5 @@
 ?>
 </body>
 </html>
+
 
