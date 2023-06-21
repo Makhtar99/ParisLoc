@@ -1,0 +1,70 @@
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+    background: #f6f6f6;
+    justify-content: center;
+    font-family: 'Poppins';
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 30px;
+}
+.list_img{
+    width: 100%;
+    display: flex;
+}
+
+.list_img {
+    margin: 50px ;
+}
+
+.list_img .img_logement {
+    width: 450px;
+    height: 350px;
+    border-radius: 30px;
+}
+
+.list_img .img_logement:hover{
+    filter: blur(2px);
+    transition: 200ms;
+    
+} 
+
+
+.list_img ul{
+    list-style: none;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.list_img ul li{
+    margin: 35px 0;
+}
+
+.list_img li a{
+    text-decoration: none;
+    color: black;
+}
+
+
+.list_img li a h2{
+    position: relative;
+    bottom: 13%;
+    left: 25px;
+
+    color: white;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 22px;
+}
