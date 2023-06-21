@@ -31,14 +31,16 @@
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo "<div>";
-            echo "<h2><a href='reservation.php?id=" . $row["ID"] . "'>" . $row["Titre"] . "</a></h2>";
-            echo "<p>Début : " . $row["Date_depart"] . "</p>";
-            echo "<p>Fin : " . $row["Date_arrivée"] . "</p>";
-            echo "<p>Arrondissement : " . $row["localisation"] . "</p>";
-            echo "<p>Places : " . $row["capacite"] . "</p>";
-            echo "</div>";
-            echo "<br>";
+            ?>
+            <div>
+                <h2><a href='reservation.php?id=<?php echo $row["ID"]; ?>'><?php echo $row["Titre"]; ?></a></h2>
+                <p>Début : <?php echo $row["Date_depart"]; ?></p>
+                <p>Fin : <?php echo $row["Date_arrivée"]; ?></p>
+                <p>Arrondissement : <?php echo $row["localisation"]; ?></p>
+                <p>Places : <?php echo $row["capacite"]; ?></p>
+            </div>
+            <br>
+            <?php
         }
     } else {
         $approxSql = "SELECT * FROM Hébergements ORDER BY RAND() LIMIT 7";
@@ -46,14 +48,16 @@
 
         if ($approxResult->num_rows > 0) {
             while ($row = $approxResult->fetch_assoc()) {
-                echo "<div>";
-                echo "<h2><a href='reservation.php?id=" . $row["ID"] . "'>" . $row["Titre"] . "</a></h2>";
-                echo "<p>Début : " . $row["Date_depart"] . "</p>";
-                echo "<p>Fin : " . $row["Date_arrivée"] . "</p>";
-                echo "<p>Arrondissement : " . $row["localisation"] . "</p>";
-                echo "<p>Places : " . $row["capacite"] . "</p>";
-                echo "</div>";
-                echo "<br>";
+                ?>
+                <div>
+                    <h2><a href='reservation.php?id=<?php echo $row["ID"]; ?>'><?php echo $row["Titre"]; ?></a></h2>
+                    <p>Début : <?php echo $row["Date_depart"]; ?></p>
+                    <p>Fin : <?php echo $row["Date_arrivée"]; ?></p>
+                    <p>Arrondissement : <?php echo $row["localisation"]; ?></p>
+                    <p>Places : <?php echo $row["capacite"]; ?></p>
+                </div>
+                <br>
+                <?php
             }
         } else {
             echo "Aucun hébergement trouvé dans la base de données.";
@@ -64,3 +68,4 @@
 ?>
 </body>
 </html>
+
