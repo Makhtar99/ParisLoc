@@ -1,0 +1,432 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*CSS*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+    background: #F5F5F5;
+}
+
+.wrapper {
+	width: 1500px;
+	margin: 0 auto;
+}
+
+/* HEADER */
+
+header{
+    background: white;
+	width: 100%;
+    padding: 15px 0;
+}
+
+header .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+header .logo{
+    width: 100px;
+    height: 60px;
+}
+
+
+header .search_bar {
+    display: flex;
+    align-items: center;
+    
+
+    background: rgba(255, 255, 255, 0.826);
+    border-radius: 30px;
+} 
+
+header .search_bar span {
+    font-family: 'Poppins';
+    margin: 0 40px;
+} 
+
+header .search_bar hr {
+    height: 30px;
+}
+
+
+/* Sidenav menu */
+.sidenav {
+    height: 100%;
+    width: 220px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: -250px;
+    background-color: #222221;
+    padding-top: 60px;
+    transition: right 0.5s ease;
+  }
+  
+  /* Sidenav menu links */
+  .sidenav a {
+    padding: 8px 25px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #111;
+  }
+  
+  .sidenav ul {
+    font-family: 'Playfair display';
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  
+  /* Active class */
+  .sidenav.active {
+    right: 0;
+  }
+
+  /* Close btn */
+  .sidenav .close {
+    position: absolute;
+    top: 0;
+    font-size: 36px;
+  }
+  
+  /* Icône burger */
+  .burger-icon span {
+
+
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    margin: 6px 0;
+  }
+  
+
+/* LIST-IMG */
+
+.list_img {
+    margin: 150px 0;
+}
+
+.list_img .img_logement {
+    width: 450px;
+    height: 350px;
+    border-radius: 30px;
+}
+
+.list_img .img_logement:hover{
+    filter: blur(2px);
+    transition: 200ms;
+    
+} 
+
+
+.list_img ul{
+    list-style: none;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.list_img ul li{
+    margin: 35px 0;
+}
+
+.list_img li a{
+    text-decoration: none;
+    color: black;
+}
+
+
+.list_img li a h2{
+    position: relative;
+    bottom: 13%;
+    left: 25px;
+
+    color: white;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 22px;
+}
+
+/* FOOTER*/
+
+footer{
+    background: #222221;
+     padding: 100px 0;
+}
+
+.footer_blocks {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blocks {
+    color: white;
+}
+.blocks .img {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    margin: 75px 0;
+}
+.blocks h1{
+    font-weight: bold;
+    font-family: "Playfair display";
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.blocks p{
+    margin: 15px 0;
+    font-family: "Poppins";
+    width: 300px;
+    font-size: 20px;
+
+}
+.blocks a{
+    text-decoration: none;
+    color: white;
+}
+
+.blocks ul li {
+    font-family: "Poppins";
+    font-size: 20px;
+    margin: 10px 0;
+    text-decoration: underline 0.15em rgba(255, 255, 255, 0);
+    transition: 300ms;
+}
+
+.blocks ul li:hover {
+    text-decoration-color: rgba(255, 255, 255, 1);
+}
+
+/* MESSAGERIE */
+
+.all_msg{
+    height: 800px;
+    flex: none;
+	display: flex;
+	flex-direction: row;
+    justify-content: space-between;
+    
+    
+}
+
+.sidebar{
+    width: 300px;
+    background: white;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.sidebar li {
+    padding: 15px;
+}
+
+.sidebar li a{
+    text-decoration: none;
+    font-family: 'Poppins';
+    color: #222221;
+    font-size: 20px;
+
+}
+.content {
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background: white;
+    overflow: hidden;
+    border-radius: 30px;
+    width: 1000px;
+}
+.all_msg header {
+    padding:20px 0;
+    background:#222221;
+}
+.all_msg header h2{
+    margin-left: 20px;
+    font-family: 'Poppins';
+    font-size: 25px;
+    color: white;
+}
+
+.message.is-sender{
+    justify-content: flex-end;
+    background: #222221;
+    color: white;
+}
+.message.is-receiver {
+    justify-content: flex-start;
+    background: #F5F5F5;
+}
+
+.body {
+   
+    display: flex;
+	flex-direction: column;
+	overflow: auto;
+	height: 100%;
+    padding: 20px;
+}
+
+.message {
+    display: flex;
+    margin: 20px 0;
+    font-family: 'Poppins';
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #222221;
+    padding: 15px;
+}
+form input {
+    padding: 12px;
+    border-radius: 15px;
+    width: 85%;
+    border: 0;
+    outline: none;
+}
+.submit {
+    background: none;
+
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+
+    margin-right: 2%;
+}
+
+
+
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 800px) {
+    .wrapper {
+        width: 1000px;
+    }
+    header {
+        width: 1100px;
+    }
+    
+    header .logo {
+        width: 180px;
+        height: 140px;
+    }
+      
+    .sidenav a {
+        font-size: 40px;
+    }
+    
+    .sidenav .close {
+        position: absolute;
+        top: 0;
+        font-size: 60px;
+    }
+    .burger-icon span {
+
+        width: 50px;
+        height: 7px;
+    }
+
+    .list_img ul {
+        margin: 0 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .list_img .img_logement {
+        width: 100%;
+    }
+    
+    footer {
+        width: 1100px;
+    }
+    .footer_blocks {
+        display: flex;
+        flex-direction: column;
+    }
+    .blocks h1 {
+        font-size: 65px;
+    } 
+    .blocks p {
+        font-size: 35px;
+        width: 100%;
+    }
+    .blocks .img{
+        width: 20%;
+    }
+  }
+

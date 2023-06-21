@@ -3,6 +3,7 @@
 <head>
     <title>Détails et réservation du logement</title>
     <link rel = "stylesheet" href="css js/detail.css">
+    <link rel = "stylesheet" href="css js/style.css">
 </head>
 <body>
     <h1>Détails et réservation du logement</h1>
@@ -140,8 +141,6 @@
                     <span>du <?php echo $row["Date_depart"]; ?> au <?php echo $row["Date_arrivée"]; ?> </span>
                 </li>
             </ul>
-
-            <a href="#" class='reservation'><span>Réserver</span></a>
         </div>
     </section>
 
@@ -184,7 +183,7 @@
                 }
                 ?>
                 <?php if ($_SESSION['user']['role'] === 'Admin'): ?>
-                    <form method="POST" action="">
+                    <form method="POST" action="welcome.php">
                     <input type="hidden" name="supprimer" value="true">
                     <button type="submit">Supprimer</button>
                     </form>
