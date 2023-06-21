@@ -1,0 +1,284 @@
+
+*{
+    margin : 0px;
+    padding : 0 px;
+}
+
+.fond{
+    background-position: center;
+    background-size: cover;
+    object-fit: scale-down;
+    background-repeat: no-repeat;
+    background-position: relative;
+    transition: all 0.2s ease-in;
+    height: 100vh;
+    width: 100%;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    height: 80px;
+    font-family: 'Playfair Display', serif;
+    font-size: 75px;
+    color: white;
+
+}
+.titre{
+    font-size: 24px;
+    margin-top: 4px;
+}
+
+.profile{
+
+    font-family: 'Playfair Display';
+    font-size: 24px;
+    color:white; 
+    margin-top: 4px;
+} 
+
+.searchbar{
+
+    font-family: "Playfair Display";
+    font-weight: 600;
+    font-size: 18px;
+    color: black;
+
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    object-fit: cover;
+    position: absolute;
+    
+    margin-top: 230px;
+    margin-left: 210px;
+    padding: 0px 20px;
+    height: 80px;
+    width: 900px;
+
+    box-sizing: border-box;
+    background: rgba(217, 217, 217, 0.34);
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.recherche{
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    background: rgba(217, 217, 217, 0.34);
+    border: 1px solid black;
+}
+
+.input1{
+    width: 40px;
+    border-radius: 5px;
+    background: rgba(217, 217, 217, 0.34);
+    border: 1px solid black;
+}
+
+.input2{
+    width: 110px;
+    border-radius: 5px;
+    background: rgba(217, 217, 217, 0.34);
+    border: 1px solid black;
+    margin : 10px;
+    position: center;
+    position: cover;
+}
+.input3{
+    width: 110px;
+    border-radius: 5px;
+    background: rgba(217, 217, 217, 0.34);
+    border: 1px solid black;
+    
+}
+.input4{
+    width : 40px;
+    border-radius: 5px;
+    background: rgba(217, 217, 217, 0.34);
+    border: 1px solid black;
+}
+.input5{
+
+    width : 90px;
+    border-radius: 5px;
+    background: rgba(217, 217, 217, 0.34);
+    border: 1px solid black;
+
+}
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer
+
+h1{
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 53px;
+
+    color: #000000;
+}
+
+.Apropos{
+    position: absolute;
+    width: 362px;
+    height: 80px;
+    left: 50px;
+    top: 2275px;
+
+    
+
+}
+.Aproposdetails{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #000000;
+
+    position: absolute;
+    width: 512px;
+    height: 252px;
+    left: 70px;
+    top: 2347px;
+
+}
+
+.Navigation{
+    position: absolute;
+    width: 213px;
+    height: 80px;
+    left: 680px;
+    top: 2272px;  
+    
+}
+.nav{
+    position: absolute;
+    width: 182px;
+    height: 90px;
+    left: 688px;
+    top: 2352px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #000000;
+
+}
+.joinus{
+    position: absolute;
+    width: 297px;
+    height: 80px;
+    left: 1033px;
+    top: 2272px;
+}
+
+.joinusdetails{
+    position: absolute;
+    width: 316px;
+    height: 295px;
+    left: 1034px;
+    top: 2341px;
+
+
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #000000;
+
+}
+.logobrontis{
+
+    position: absolute;
+    width: 80px;
+    height: 91px;
+    left: 98px;
+    top: 2640px;
+}
+
+.logohetic{
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    left: 228px;
+    top: 2636px;
+}
+.logoparis{
+
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    left: 376px;
+    top: 2636px;
+
+}
+
+img {
+    width : 100px;
+    float: left ; 
+    margin-right: 10px;      
+} 
+
+fin footer
+*/
