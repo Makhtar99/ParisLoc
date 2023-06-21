@@ -1,3 +1,4 @@
+<link rel = "stylesheet" href="./css js/style.css">
 <footer>
             <div class="wrapper">
                 <div class="footer_blocks">
