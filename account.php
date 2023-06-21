@@ -10,7 +10,7 @@
 </head>
 
 <body>
-
+    <?php require 'alreadydone.php'; ?> 
     <?php include 'components/header.php'; ?> 
 
     <div class="container">
@@ -39,7 +39,6 @@
         <div id="div1" class="free"></div>
 
         <div id="div2" class="present ">
-        <?php require 'alreadydone.php'; ?> 
             <div class="reservation">
                 <h3>Réservation ID : <?php echo $reservationRow['ID']; ?></h3>
                 <h1>Logement : <?php echo $logementRow['Titre']; ?></h1>

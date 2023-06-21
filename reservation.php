@@ -1,4 +1,13 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Détails et réservation du logement</title>
+    <link rel = "stylesheet" href="css js/detail.css">
+</head>
+<body>
+    <h1>Détails et réservation du logement</h1>
+
+    <?php
     $servername = "localhost";
     $username = "root";
     $password = "root";
@@ -86,17 +95,57 @@
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             ?>
-            <h2>Nom : <?php echo $row["Titre"]; ?></h2>
-            <img src="<?php echo $row["Image"]; ?>" alt="Image du logement"><br>
-            <img src="<?php echo $row["Image"]; ?>" alt="Image du logement"><br>
-            <img src="<?php echo $row["Image"]; ?>" alt="Image du logement"><br>
-            <p>Description : <?php echo $row["Description"]; ?></p>
-            <p>Commodités : <?php echo $row["Commodités"]; ?></p>
-            <p>Règles de la maison : <?php echo $row["Règles_de_la_maison"]; ?></p>
-            <p>Début : <?php echo $row["Date_depart"]; ?></p>
-            <p>Fin : <?php echo $row["Date_arrivée"]; ?></p>
-            <p>Arrondissement : <?php echo $row["localisation"]; ?></p>
-            <p>Places : <?php echo $row["capacite"]; ?></p>
+            <div class='wrapper'>
+    <section class='header'>
+
+        <h2><?php echo $row["Titre"]; ?></h2>
+        <a href="#"><span>Contacter l'hôte</span></a>
+
+    </section>
+
+    <section class='img'>
+
+        <img class='big_img' src="https://www.architecte-maisons.fr/wp-content/uploads/2019/02/agencement-pieces.jpg" alt="">
+
+        <div class='side_img'>
+
+        <img class='small_img' src="https://www.architecte-maisons.fr/wp-content/uploads/2019/02/agencement-pieces.jpg" alt="">
+        <img class='small_img' src="https://www.architecte-maisons.fr/wp-content/uploads/2019/02/agencement-pieces.jpg" alt="">
+
+        </div>
+
+    </section>
+
+    <section class='middle_content'>
+
+        <p><?php echo $row["Description"]; ?> </p>
+
+        <div class='details_logement'>
+            <ul>
+                <li>
+                    <h2>Arrondissement :</h2>
+                    <span><?php echo $row["localisation"]; ?></span>
+                </li>
+        
+                <li>
+                    <h2>Prix :</h2>
+                    <span><?php echo $row["Commodités"]; ?></span>
+                </li>
+                <li>
+                    <h2>Places :</h2>
+                    <span><?php echo $row["capacite"]; ?></span>
+                </li>
+                <li>
+                    <h2>Disponibilités</h2>
+                    <span>du <?php echo $row["Date_depart"]; ?> au <?php echo $row["Date_arrivée"]; ?> </span>
+                </li>
+            </ul>
+
+            <a href="#" class='reservation'><span>Réserver</span></a>
+        </div>
+    </section>
+
+</div>
             <?php
 
             // Vérification de la réservation
@@ -117,8 +166,29 @@
                     <input type="date" id="Date_arrivée" name="Date_arrivée" required><br>
                     <label for="Nombre_personnes">Nombre de personnes :</label>
                     <input type="number" id="Nombre_personnes" name="Nombre_personnes" required><br>
-                    <button type="submit">Réserver</button>
+                    <button class='reservation' type="submit">Réserver</button>
                 </form>
+                
+                <?php if (isset($_POST['supprimer'])) {
+                $logementId = $_GET['id'];
+
+                // Supprimer le logement de la base de données
+                $suppressionSql = "DELETE FROM Hébergements WHERE ID = '$logementId'";
+                if ($conn->query($suppressionSql) === TRUE) {
+                // Rediriger vers une page de confirmation ou autre
+                header("Location: confirmation.php");
+                    exit();
+                } else {
+                echo "Erreur lors de la suppression du logement : " . $conn->error;
+                 }
+                }
+                ?>
+                <?php if ($_SESSION['user']['role'] === 'Admin'): ?>
+                    <form method="POST" action="">
+                    <input type="hidden" name="supprimer" value="true">
+                    <button type="submit">Supprimer</button>
+                    </form>
+                <?php endif; ?>
                 <?php
             }
 
@@ -137,7 +207,8 @@
                     <option value="4">4 étoiles</option>
                     <option value="5">5 étoiles</option>
                 </select><br>
-                <button type="submit">Envoyer</button>
+                <button class='button' type="submit">Envoyer</button>
+                <img src="img/arrow-small-black.svg" alt="">
             </form>
             <?php
 
@@ -151,10 +222,20 @@
                 <?php
                 while ($commentaireRow = $commentairesResult->fetch_assoc()) {
                     ?>
-                    <p>Auteur : <?php echo $commentaireRow['username']; ?></p>
-                    <p>Commentaire : <?php echo $commentaireRow['Contenu_commentaire']; ?></p>
+                    <section class='avis'>
+                    <article class='commentaire is-posted'>
+
+                <div>
+                    <img class='img_avis' src="img/user_circle.svg" alt="">
+                </div>
+                <div class='comment'>
+                    <h2><?php echo $commentaireRow['username']; ?></h2>
+                    <p><?php echo $commentaireRow['Contenu_commentaire']; ?></p>
                     <p>Note : <?php echo $commentaireRow['Note']; ?></p>
-                    <hr>
+                </div>
+
+            </article> 
+                </section>
                     <?php
                 }
             } else {
@@ -169,6 +250,9 @@
 
     $conn->close();
     ?>
+
+</body>
+</html>
 
 
 
