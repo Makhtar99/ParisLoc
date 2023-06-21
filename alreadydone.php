@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Mes réservations</title>
-</head>
-<body>
-    <h1>Mes réservations</h1>
-
-    <?php
+<?php
     $servername = "localhost";
     $username = "root";
     $password = "root";
@@ -37,12 +29,8 @@
 
             if ($logementResult->num_rows > 0) {
                 $logementRow = $logementResult->fetch_assoc();
-                echo "<h3>Réservation ID : " . $reservationRow['ID'] . "</h3>";
-                echo "<p>Logement : " . $logementRow['Titre'] . "</p>";
-                echo "<p>Date d'arrivée : " . $reservationRow['Date_depart'] . "</p>";
-                echo "<p>Date de fin : " . $reservationRow['Date_arrivée'] . "</p>";
-                echo "<p>Nombre de personnes : " . $reservationRow['Nombre_personnes'] . "</p>";
-                echo "<hr>";
+                ?>
+                <?php
             }
         }
     } else {
@@ -50,6 +38,4 @@
     }
 
     $conn->close();
-    ?>
-</body>
-</html>
+?>

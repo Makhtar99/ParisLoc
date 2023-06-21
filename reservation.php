@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Détails et réservation du logement</title>
-</head>
-<body>
-    <h1>Détails et réservation du logement</h1>
-
-    <?php
+<?php
     $servername = "localhost";
     $username = "root";
     $password = "root";
@@ -177,9 +169,6 @@
 
     $conn->close();
     ?>
-
-</body>
-</html>
 
 
 

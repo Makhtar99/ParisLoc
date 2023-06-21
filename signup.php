@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($password !== $passwordRepeat) {
         array_push($errors, "Passwords do not match");
     }
-    require_once "Airbnb.php";
+    require_once "database/database.php";
     $sql = "SELECT * FROM users WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$username]);
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
 
-    require_once "Airbnb.php";
+    require_once "database/database.php";
     $sql = "SELECT * FROM users WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$email]);
