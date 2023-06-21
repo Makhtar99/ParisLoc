@@ -28,7 +28,7 @@
         $dateDépart = $_POST['Date_depart'];
         $dateFin = $_POST['Date_arrivée'];
         $nombrePersonnes = $_POST['Nombre_personnes'];
-        $utilisateurConnecte = $_SESSION['user'];
+        $utilisateurConnecte = $_SESSION['user']['id'];
         $logementId = $_GET['id'];
 
         // Vérification des disponibilités
