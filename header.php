@@ -7,7 +7,7 @@
     <title>Unco</title>
     <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css js/style.css" />
 </head>
 
 <body>
