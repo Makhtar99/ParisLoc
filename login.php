@@ -35,6 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Login</title>
 </head>
 <body>
+        <?php include "components/header.php"
+        ?>
 
     <section class="Connexion ">
         <div class="login">

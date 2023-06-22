@@ -14,7 +14,7 @@
     <header>
         <div class="wrapper">
             <h1>
-                <a href="">
+                <a href="./logements.php">
                     <img
                     class="logo"
                     src="assets/Logo.svg"
@@ -25,7 +25,7 @@
             <div id="mySidenav" class="sidenav">
                 <a id="closeBtn" href="#" class="close">×</a>
                 <ul>
-                    <li><a href="#">Mon profil</a></li>
+                <li><a href="<?php echo isset($_SESSION['user']) ? './account.php' : './login.php'; ?>">Mon profil</a></li>
                 </ul>
             </div>
 

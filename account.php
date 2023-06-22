@@ -18,7 +18,7 @@
             <div class="identify">
                 <img src="https://www.bing.com/th?id=OIP.rWPZbrgM1ewg2li0EGlPMAHaHa&w=150&h=150&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2">
             </div>
-            <button><a href="Modif.php">Modifier mon profil</a></button>
+            <button><a href="Modifaccount.php">Modifier mon profil</a></button>
         </div>
 
         <div class="nav">
@@ -352,4 +352,6 @@
     <script src="css js/Account.js"></script>
     
 </body>
+<?php include 'components/footer.php'
+?>
 </html>
