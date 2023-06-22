@@ -2,7 +2,7 @@
 session_start(); // Démarre la session pour accéder aux données utilisateur
 
 // Vérifie si l'utilisateur est connecté en tant qu'administrateur
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'Admin') {
+if (!isset($_SESSION['user']) || $_SESSION['role'] !== 'Admin') {
     // Redirige l'utilisateur vers la page de connexion s'il n'est pas connecté ou n'est pas administrateur
     header("Location: ./login.php");
     exit();
