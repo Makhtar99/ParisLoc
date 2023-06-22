@@ -1,3 +1,6 @@
+<?php include"header.php"
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,15 +53,43 @@
         if ($approxResult->num_rows > 0) {
             while ($row = $approxResult->fetch_assoc()) {
                 ?>
-                <div>
-                    <h2><a href='reservation.php?id=<?php echo $row["ID"]; ?>'><?php echo $row["Titre"]; ?></a></h2>
-                    <img src='<?php echo $row["Image"]; ?>' alt='Image du logement'><br>
-                    <p>Début : <?php echo $row["Date_depart"]; ?></p>
-                    <p>Fin : <?php echo $row["Date_arrivée"]; ?></p>
-                    <p>Arrondissement : <?php echo $row["localisation"]; ?></p>
-                    <p>Places : <?php echo $row["capacite"]; ?></p>
+                <div class='wrapper'>
+                <section class='list_img'>
+                    <ul>
+                        <li>
+                            <a href='reservation.php?id=<?php echo $row["ID"]; ?>'>
+                                
+                                <img class='img_logement' src="https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-06/amenagement-interieur-conseils-et-solutions-00.jpg" alt="image logement">
+                                <!-- <img src='<?php echo $row["Image"]; ?>' alt='Image du logement'> -->
+                                <h2><?php echo $row["Titre"]; ?></h2>
+                                <div class='details_list'>
+                                    <p>Début : <?php echo $row["Date_depart"]; ?></p>
+                                    <p>Fin : <?php echo $row["Date_arrivée"]; ?></p>
+                                    <p>Arrondissement : <?php echo $row["localisation"]; ?></p>
+                                    <p>Places : <?php echo $row["capacite"]; ?></p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <div class='wrapper'>
+                    <section class='list_img'>
+                        <ul>
+                            <li>
+                                <a href='reservation.php?id=<?php echo $row["ID"]; ?>'></a>
+
+                               
+                                <img src='<?php echo $row["Image"]; ?>' alt='Image du logement'><br>
+                                <h2><?php echo $row["Titre"]; ?></h2>
+                                <p>Début : <?php echo $row["Date_depart"]; ?></p>
+                                <p>Fin : <?php echo $row["Date_arrivée"]; ?></p>
+                                <p>Arrondissement : <?php echo $row["localisation"]; ?></p>
+                                <p>Places : <?php echo $row["capacite"]; ?></p>
+                            </li>
+                            
+                        </ul>
+                    </section>
                 </div>
-                <br>
                 <?php
             }
         } else {
@@ -69,7 +100,11 @@
     $conn->close();
 ?>
 </body>
+<link rel = "stylesheet" href ="css js/style.css">
 </html>
+
+<?php include"footer.php"
+?>
 
 
 
