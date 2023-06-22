@@ -70,6 +70,71 @@ if ($reservationResult->num_rows > 0) {
 
 $conn->close();
 ?>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "Airbnb";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Échec de la connexion à la base de données : " . $conn->connect_error);
+}
+
+// Récupérer tous les utilisateurs de la base de données
+$sql = "SELECT id, username, role FROM users";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<table>";
+    echo "<tr><th>ID</th><th>Nom d'utilisateur</th><th>Action</th></tr>";
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["username"] . "</td>";
+        echo "<td>";
+        echo "<form method='POST' action=''>";
+        echo "<input type='hidden' name='userId' value='" . $row["id"] . "'>";
+        echo "<input type='submit' name='delete' value='Supprimer'>";
+        echo "<input type='submit' name='modifyRole' value='Modifier le rôle'>";
+        echo "</form>";
+        echo "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+} else {
+    echo "Aucun utilisateur trouvé dans la base de données.";
+}
+
+// Traitement des actions (suppression de l'utilisateur, modification du rôle)
+if (isset($_POST['delete'])) {
+    $userId = $_POST['userId'];
+    $deleteSql = "DELETE FROM users WHERE id = '$userId'";
+
+    if ($conn->query($deleteSql) === TRUE) {
+        echo "Utilisateur supprimé avec succès.";
+    } else {
+        echo "Erreur lors de la suppression de l'utilisateur : " . $conn->error;
+    }
+}
+
+if (isset($_POST['modifyRole'])) {
+    $userId = $_POST['userId'];
+    $newRole = 'Admin'; // Nouveau rôle à attribuer à l'utilisateur
+
+    $modifyRoleSql = "UPDATE users SET role = '$newRole' WHERE id = '$userId'";
+
+    if ($conn->query($modifyRoleSql) === TRUE) {
+        echo "Rôle de l'utilisateur modifié avec succès.";
+    } else {
+        echo "Erreur lors de la modification du rôle de l'utilisateur : " . $conn->error;
+    }
+}
+
+$conn->close();
+?>
+
 </body>
 </html>
 

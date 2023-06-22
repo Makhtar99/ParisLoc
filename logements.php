@@ -1,4 +1,4 @@
-<?php include"components/header.php"
+<?php include "components/header.php"
 ?>
 
 
@@ -97,5 +97,5 @@
 <link rel = "stylesheet" href ="css js/style.css">
 </html>
 
-<?php include'components/footer.php'
+<?php include 'components/footer.php'
 ?>
