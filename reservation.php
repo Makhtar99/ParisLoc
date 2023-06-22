@@ -96,7 +96,7 @@
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             ?>
-            <div class='wrapper'>
+<div class='wrapper'>
     <section class='header'>
 
         <h2><?php echo $row["Titre"]; ?></h2>
@@ -113,7 +113,6 @@
         <img class='small_img' src="https://www.architecte-maisons.fr/wp-content/uploads/2019/02/agencement-pieces.jpg" alt="">
         <img class='small_img' src="https://www.architecte-maisons.fr/wp-content/uploads/2019/02/agencement-pieces.jpg" alt="">
 
-        </div>
 
     </section>
 
@@ -143,8 +142,6 @@
             </ul>
         </div>
     </section>
-
-</div>
             <?php
 
             // Vérification de la réservation
@@ -249,6 +246,7 @@
 
     $conn->close();
     ?>
+    </div>
 
 </body>
 </html>
