@@ -33,6 +33,10 @@
             <div class="barre"></div>
         </div>
 
+        <div id="div1" class="past">
+        </div>
+
+
 
         <div id="div2" class="present ">
             <?php
@@ -100,9 +104,11 @@
         </div>
 
             
-            <div id="div3" class="past">
+        <div id="div3" class="past">
+        </div>
 
-            </div>
+        <div id="div4" class="past">
+        </div>
 
             
         <div id="div5" class="message">
