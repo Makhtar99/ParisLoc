@@ -12,6 +12,9 @@
         $dbname = "Airbnb";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($_SESSION['user']['role'] !== 'Admin') {
+            die("Vous n'avez pas les autorisations nécessaires pour accéder à cette page.");
+        }
 
         // récupérer les réservations avec les noms d'utilisateur, les titres des logements et les informations utilisateur
         $reservationSql = "SELECT Réservations.*, USERS.username, USERS.Name, USERS.Familyname, USERS.email, Hébergements.titre 
