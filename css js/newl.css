@@ -82,6 +82,7 @@ button[type="submit"] {
 footer{
     background: #222221;
     padding: 100px 0;
+    padding-top: 200px;
 }
 
 .footer_blocks {

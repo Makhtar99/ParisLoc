@@ -13,7 +13,7 @@
 <section class="fond"> 
     <header>
         <btn class="titre">UNCO</btn>
-        <btn class="profile">Account</btn>
+
     </header>
 
     <form method="POST" action="logements.php">

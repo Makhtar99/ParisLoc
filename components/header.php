@@ -25,7 +25,7 @@
             <div id="mySidenav" class="sidenav">
                 <a id="closeBtn" href="#" class="close">×</a>
                 <ul>
-                    <li><a href="#">Mon profil</a></li>
+                    <li><a href="account.php">Mon profil</a></li>
                 </ul>
             </div>
 

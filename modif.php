@@ -2,14 +2,14 @@
 session_start(); // Démarre la session pour accéder aux données utilisateur
 
 // Vérifie si l'utilisateur est connecté
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user'])) {
     // Redirige l'utilisateur vers la page de connexion s'il n'est pas connecté
     header("Location: login.php");
     exit();
 }
 
 // Récupère l'ID de l'utilisateur connecté
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['user'];
 
 // Vérifie si le formulaire de modification a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Prépare la requête pour mettre à jour les informations de l'utilisateur
-    $sql = "UPDATE utilisateurs SET username = '$new_username', email = '$new_email', password = '$new_password', Name = '$new_name', Familyname = '$new_familyname' WHERE id = '$user_id'";
+    $sql = "UPDATE users SET username = '$new_username', email = '$new_email', password = '$new_password', Name = '$new_name', Familyname = '$new_familyname' WHERE id = '$user_id'";
 
     if ($conn->query($sql) === TRUE) {
         // Les informations ont été mises à jour avec succès
@@ -74,6 +74,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <input type="submit" value="Enregistrer les modifications">
     </form>
-</body>
-</html>
 
