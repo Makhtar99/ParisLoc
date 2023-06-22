@@ -25,7 +25,7 @@
             <div class="nav-bar-parent">
                 <ul class="nav-bar" id="nav-bar">
                     <li ><a  class="element">Mes réservations</a></li>
-                    <li ><a  class="element">Mes réservations passées</a></li>
+                    <li ><a  class="element">Dashboard</a></li>
                     <li ><a  class="element">Messagerie</a></li>
                 </ul>
                 <div class="bar"></div>
