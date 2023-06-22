@@ -213,12 +213,23 @@ header .search_bar hr {
     font-size: 22px;
     width: 50%;
 }
-
 .details_list {
     margin-left: 75px;
-    font-size: 22px;
+    
+}
+
+.details_list p{
+    margin-bottom: 20px;
+    font-size: 20px;
     font-family: 'Poppins';
     color: black;
+}
+
+.details_list span {
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 22px;
+    margin-right: 10px;
 }
 
 /* FOOTER*/

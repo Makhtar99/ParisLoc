@@ -17,7 +17,7 @@
                 <a href="">
                     <img
                     class="logo"
-                    src="assets/Logo.svg"
+                    src="../assets/Logo.svg"
                     alt="logo">
                 </a>
             </h1>
@@ -42,8 +42,8 @@
 
 <script>
     var sidenav = document.getElementById("mySidenav");
-var openBtn = document.getElementById("openBtn");
-var closeBtn = document.getElementById("closeBtn");
+    var openBtn = document.getElementById("openBtn");
+    var closeBtn = document.getElementById("closeBtn");
 
 openBtn.onclick = openNav;
 closeBtn.onclick = closeNav;

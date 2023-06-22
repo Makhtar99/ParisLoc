@@ -1,4 +1,4 @@
-<?php include'header.php'
+<?php include"components/header.php"
 ?>
 
 
@@ -49,10 +49,10 @@
                         </li>
                     </ul>
                     <div class='details_list'>
-                        <p>Début : <?php echo $row["Date_depart"]; ?></p>
-                        <p>Fin : <?php echo $row["Date_arrivée"]; ?></p>
-                        <p>Arrondissement : <?php echo $row["localisation"]; ?></p>
-                        <p>Places : <?php echo $row["capacite"]; ?></p>
+                        <p><span>Début :</span><?php echo $row["Date_depart"]; ?></p>
+                        <p><span>Fin : </span><?php echo $row["Date_arrivée"]; ?></p>
+                        <p><span>Arrondissement : </span><?php echo $row["localisation"]; ?></p>
+                        <p><span>Places : </span><?php echo $row["capacite"]; ?></p>
                     </div>
                 </section>
             </div>
@@ -74,10 +74,10 @@
                                
                                 <img src='<?php echo $row["Image"]; ?>' alt='Image du logement'><br>
                                 <h2><?php echo $row["Titre"]; ?></h2>
-                                <p>Début : <?php echo $row["Date_depart"]; ?></p>
-                                <p>Fin : <?php echo $row["Date_arrivée"]; ?></p>
-                                <p>Arrondissement : <?php echo $row["localisation"]; ?></p>
-                                <p>Places : <?php echo $row["capacite"]; ?></p>
+                                <p><span>Début :</span><?php echo $row["Date_depart"]; ?></p>
+                                <p><span>Fin : </span><?php echo $row["Date_arrivée"]; ?></p>
+                                <p><span>Arrondissement : </span><?php echo $row["localisation"]; ?></p>
+                                <p><span>Places : </span><?php echo $row["capacite"]; ?></p>
                             </li>
                             
                         </ul>
@@ -97,5 +97,5 @@
 <link rel = "stylesheet" href ="css js/style.css">
 </html>
 
-<?php include'footer.php'
+<?php include'components/footer.php'
 ?>
