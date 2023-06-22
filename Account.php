@@ -10,8 +10,7 @@
 </head>
 
 <body>
-
-    <?php include 'components/Header-for-login.php'; ?> 
+  <?php include 'components/Header-for-login.php'; ?> 
 
     <div class="container">
         <h1>Mon Compte</h1>
