@@ -7,7 +7,7 @@
     <title>Unco</title>
     <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel = "stylesheet" href="./css js/style.css">
+    <link rel="stylesheet" href="../css js/style.css" />
 </head>
 
 <body>
@@ -17,7 +17,7 @@
                 <a href="">
                     <img
                     class="logo"
-                    src="img/Logo.svg"
+                    src="assets/Logo.svg"
                     alt="logo">
                 </a>
             </h1>
@@ -25,7 +25,7 @@
             <div id="mySidenav" class="sidenav">
                 <a id="closeBtn" href="#" class="close">×</a>
                 <ul>
-                    <li><a href="account.php">Mon profil</a></li>
+                    <li><a href="#">Mon profil</a></li>
                 </ul>
             </div>
 
@@ -61,10 +61,10 @@ function closeNav() {
 
 <style>
     header{
-    	background: white;
+    background: white;
 	width: 100%;
-    	padding: 15px 0;
-    }
+    padding: 15px 0;
+}
 
 header .wrapper {
     display: flex;
