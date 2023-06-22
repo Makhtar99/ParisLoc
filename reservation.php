@@ -130,7 +130,7 @@
         
                 <li>
                     <h2>Prix :</h2>
-                    <span><?php echo $row["Commodités"]; ?></span>
+                    <span><?php echo $row["prix"]; ?>€</span>
                 </li>
                 <li>
                     <h2>Places :</h2>

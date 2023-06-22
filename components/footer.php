@@ -1,5 +1,4 @@
-<link rel = "stylesheet" href="./css js/style.css">
-<footer>
+        <footer>
             <div class="wrapper">
                 <div class="footer_blocks">
                     <div class="blocks">
@@ -9,9 +8,9 @@
                             <br>
                             <p>Un objectif comun : Vous faire passer un excellent séjour.</p>
                             <div class="img">
-                                <img src="img/brontis_2.png">
-                                <img src="img/hetic_logo.jpg">
-                                <img src="img/ville_de_paris.jpg">
+                                <img src="assets/brontis 2.png">
+                                <img src="assets/hetic logo.jpg">
+                                <img src="assets/ville de paris.jpg">
                             </div>
                     </div>
 
@@ -93,3 +92,4 @@
         text-decoration-color: rgba(255, 255, 255, 1);
     }
 </style>
+
