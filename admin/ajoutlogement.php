@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ajouter un logement</title>
+<link rel="stylesheet" href="../css js/ajout.css">
 </head>
 <body>
-    <h1>Ajouter un logement</h1>
 
     <?php
     $servername = "localhost";
@@ -19,6 +18,15 @@
     }
 
     session_start();
+    if (!isset($_SESSION['user'])) {
+        die("Veuillez vous connecter pour ajouter un logement.");
+    }
+    
+    $utilisateurConnecte = $_SESSION['user']['id'];
+    
+    if ($_SESSION['user']['role'] !== 'Admin') {
+        die("Vous n'avez pas les autorisations nécessaires pour accéder à cette page.");
+    }
 
     if (!isset($_SESSION['user'])) {
         die("Veuillez vous connecter pour ajouter un logement.");
@@ -55,10 +63,42 @@
         }
     }
     ?>
+    <header>
+        <div class="wrapper">
+            <h1>
+                <a href="">
+                    <img
+                    class="logo"
+                    src="/Logo.png"
+                    alt="logo">
+                </a>
+            </h1>
+
+            <div id="mySidenav" class="sidenav">
+                <a id="closeBtn" href="#" class="close">×</a>
+                <ul class = "profil"> <a href = "#">
+                    Mon profil</a>
+                </ul>
+            </div>
+
+                <a href="#" id="openBtn">
+                <span class="burger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                </a>
+        </div>
+    
+    </header>
+    <div class="title-container">
+        <h1>Ajouter un logement</h1>
+    </div>
 
     <form method="POST" action="" enctype="multipart/form-data">
         <label for="titre">Titre :</label>
         <input type="text" id="titre" name="titre" required><br>
+
         <label for="description">Description :</label><br>
         <textarea id="description" name="description" rows="4" cols="50" required></textarea><br>
 
@@ -89,14 +129,28 @@
         
 
         <button type="submit" name="ajouter">Ajouter le logement</button>
-
-   
-
-        <button type="submit" name="ajouter">Ajouter le logement</button>
     </form>
 
     <?php
     $conn->close();
     ?>
+    <script>
+	    var sidenav = document.getElementById("mySidenav");
+		var openBtn = document.getElementById("openBtn");
+		var closeBtn = document.getElementById("closeBtn");
+
+		openBtn.onclick = openNav;
+		closeBtn.onclick = closeNav;
+
+		/* Set the width of the side navigation to 250px */
+		function openNav() {
+		  sidenav.classList.add("active");
+		}
+
+		/* Set the width of the side navigation to 0 */
+		function closeNav() {
+		  sidenav.classList.remove("active");
+		}
+	</script> 
 </body>
 </html>
