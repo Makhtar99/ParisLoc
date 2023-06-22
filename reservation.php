@@ -233,6 +233,12 @@
                         <h2><?php echo $commentaireRow['username']; ?></h2>
                         <p><?php echo $commentaireRow['Contenu_commentaire']; ?></p>
                         <p>Note : <?php echo $commentaireRow['Note']; ?></p>
+                        <?php if ($_SESSION['user']['role'] === 'Modo'): ?>
+                                        <form method="POST" action="">
+                                            <input type="hidden" name="supprimer_commentaire" value="<?php echo $commentaireRow['ID']; ?>">
+                                            <button type="submit">Supprimer</button>
+                                        </form>
+                         <?php endif; ?>
                     </div>
 
                 </article> 
@@ -246,6 +252,17 @@
                 }
             } else {
                 echo "Logement introuvable.";
+            }
+        }
+        if (isset($_POST['supprimer_commentaire'])) {
+            $commentaireId = $_POST['supprimer_commentaire'];
+
+            $suppressionCommentaireSql = "DELETE FROM Commentaires WHERE ID = '$commentaireId'";
+            if ($conn->query($suppressionCommentaireSql) === TRUE) {
+                // Afficher un message de confirmation
+                echo "Le commentaire a été supprimé avec succès.";
+            } else {
+                echo "Erreur lors de la suppression du commentaire : " . $conn->error;
             }
         }
 
