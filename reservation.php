@@ -1,4 +1,4 @@
-<?php include"components/header.php"
+<?php include "components/header.php"
 ?>
 
 <!DOCTYPE html>
@@ -110,12 +110,12 @@
 
         <section class='img'>
 
-            <img class='big_img' src="https://www.architecte-maisons.fr/wp-content/uploads/2019/02/agencement-pieces.jpg" alt="">
+            <img class='big_img' src='../assets/<?php echo $row["image1"]; ?>' alt="">
 
             <div class='side_img'>
 
-            <img class='small_img' src="https://www.architecte-maisons.fr/wp-content/uploads/2019/02/agencement-pieces.jpg" alt="">
-            <img class='small_img' src="https://www.architecte-maisons.fr/wp-content/uploads/2019/02/agencement-pieces.jpg" alt="">
+            <img class='small_img' src='../assets/<?php echo $row["image2"]; ?>' alt="">
+            <img class='small_img' src='../assets/<?php echo $row["image3"]; ?>'>
 
 
         </section>
@@ -169,26 +169,27 @@
                         <button class='reservation' type="submit">Réserver</button>
                     </form>
                     
-                    <?php if (isset($_POST['supprimer'])) {
+                    <?php
+                if (isset($_POST['supprimer'])) {
                     $logementId = $_GET['id'];
 
-                    // Supprimer le logement de la base de données
                     $suppressionSql = "DELETE FROM Hébergements WHERE ID = '$logementId'";
                     if ($conn->query($suppressionSql) === TRUE) {
-                    // Rediriger vers une page de confirmation ou autre
-                    header("Location: confirmation.php");
-                        exit();
+                        // Afficher un message de confirmation
+                        echo "Le logement a été supprimé avec succès.";
                     } else {
-                    echo "Erreur lors de la suppression du logement : " . $conn->error;
+                        echo "Erreur lors de la suppression du logement : " . $conn->error;
                     }
-                    }
-                    ?>
-                    <?php if ($_SESSION['user']['role'] === 'Admin'): ?>
-                        <form method="POST" action="welcome.php">
+                }
+                ?>
+
+                <?php if ($_SESSION['user']['role'] === 'Admin'): ?>
+                    <form method="POST" action="">
                         <input type="hidden" name="supprimer" value="true">
                         <button type="submit">Supprimer</button>
-                        </form>
-                    <?php endif; ?>
+                    </form>
+                <?php endif; ?>
+
                     <?php
                 }
 
@@ -254,7 +255,7 @@
 </body>
 </html>
 
-<?php include'components/footer.php'
+<?php include 'components/footer.php'
 ?>
 
 

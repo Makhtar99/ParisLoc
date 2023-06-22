@@ -24,9 +24,6 @@
     
     $utilisateurConnecte = $_SESSION['user']['id'];
     
-    if ($_SESSION['user']['role'] !== 'Admin') {
-        die("Vous n'avez pas les autorisations nécessaires pour accéder à cette page.");
-    }
 
     if (!isset($_SESSION['user'])) {
         die("Veuillez vous connecter pour ajouter un logement.");
