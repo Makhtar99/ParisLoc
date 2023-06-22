@@ -17,7 +17,7 @@
                 <a href="">
                     <img
                     class="logo"
-                    src="assets/unco logo.png"
+                    src="assets/Logo.svg"
                     alt="logo">
                 </a>
             </h1>
