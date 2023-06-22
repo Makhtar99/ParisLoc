@@ -10,9 +10,9 @@
                             <br>
                             <p>Un objectif comun : Vous faire passer un excellent séjour.</p>
                             <div class="img">
-                                <img src="../assets/brontis 2.png">
-                                <img src="../assets/hetic logo.jpg">
-                                <img src="../assets/ville de paris.jpg">
+                                <img src="assets/brontis 2.png">
+                                <img src="assets/hetic logo.jpg">
+                                <img src="assets/ville de paris.jpg">
                             </div>
                     </div>
 

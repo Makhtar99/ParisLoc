@@ -1,3 +1,6 @@
+<?php include"components/header.php"
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -251,6 +254,8 @@
 </body>
 </html>
 
+<?php include'components/footer.php'
+?>
 
 
 

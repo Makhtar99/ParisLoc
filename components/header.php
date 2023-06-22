@@ -17,7 +17,7 @@
                 <a href="">
                     <img
                     class="logo"
-                    src="../assets/Logo.svg"
+                    src="assets/Logo.svg"
                     alt="logo">
                 </a>
             </h1>

@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="components/logo2.png">
-    <link rel="stylesheet" href="css js/Login&Signup.css">
+    <link rel="stylesheet" href="css js/login&signup.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <title>Login</title>
 </head>
