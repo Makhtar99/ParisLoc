@@ -153,7 +153,7 @@
                 <?php
             } else {
                 ?>
-                <form method="POST" action="">
+                <form method="POST" action="reservationsdone.php">
                     <div class="reservation">
                         <ul>
                             <input type="hidden" name="reserver" value="true">
