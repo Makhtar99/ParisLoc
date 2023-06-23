@@ -18,6 +18,17 @@
             </div>
             <div id="sidebar">
                 <ion-icon name="close-outline" id="closeButton"></ion-icon>
+            <h1>
+                <a href="./logements.php">
+                    <img
+                    class="logo"
+                    src="assets/Logo.svg"
+                    alt="logo">
+                </a>
+            </h1>
+
+            <div id="mySidenav" class="sidenav">
+                <a id="closeBtn" href="#" class="close">×</a>
                 <ul>
                     <li><a href="#">Ajouter un logement</a></li>
                     <li><a href="#">Reservations</a></li>

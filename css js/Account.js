@@ -37,8 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // HTML
         document.addEventListener('DOMContentLoaded', function() {
           var liste = document.getElementById('nav-bar');
+          var div1 = document.getElementById('div1');
           var div2 = document.getElementById('div2');
           var div3 = document.getElementById('div3');
+          var div4 = document.getElementById('div4');
           var div5 = document.getElementById('div5');
         
           
@@ -46,16 +48,28 @@ document.addEventListener('DOMContentLoaded', function() {
             var target = event.target;
             
             if (target.textContent === 'Mes réservations') {
+              div1.style.display = 'none';
               div2.style.display = 'block';
               div3.style.display = 'none';
+              div4.style.display = 'none';
               div5.style.display = 'none';
             } else if (target.textContent === 'Mes réservations passées') {
+              div1.style.display = 'none';
               div2.style.display = 'none';
               div3.style.display = 'block';
+              div4.style.display = 'none';
               div5.style.display = 'none';
-            } else if (target.textContent === 'Messagerie') {
+            } else if (target.textContent === 'Mes réservations futures') {
+              div1.style.display = 'none';
               div2.style.display = 'none';
               div3.style.display = 'none';
+              div4.style.display = 'block';
+              div5.style.display = 'none';
+            } else if (target.textContent === 'Messagerie') {
+              div1.style.display = 'none';
+              div2.style.display = 'none';
+              div3.style.display = 'none';
+              div4.style.display = 'none';
               div5.style.display = 'block';
             }
           });

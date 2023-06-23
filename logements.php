@@ -1,4 +1,4 @@
-<?php include"components/header.php"
+<?php include "components/header.php"
 ?>
 
 
@@ -26,7 +26,7 @@
     $dateFin = isset($_POST['date_fin']) ? $_POST['date_fin'] : "";
 
     if (empty($localisation) && empty($capacite) && empty($dateDebut) && empty($dateFin)) {
-        $sql = "SELECT * FROM Hébergements LIMIT 7";
+        $sql = "SELECT * FROM Hébergements LIMIT 15";
     } else {
         $sql = "SELECT * FROM Hébergements WHERE localisation LIKE '%$localisation%' AND capacite >= '$capacite' AND Date_depart >= '$dateDebut' AND Date_arrivée <= '$dateFin'";
     }
@@ -42,8 +42,7 @@
                         <li>
                             <a href='reservation.php?id=<?php echo $row["ID"]; ?>'>
                                 
-                                <img class='img_logement' src="https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-06/amenagement-interieur-conseils-et-solutions-00.jpg" alt="image logement">
-                                <!-- <img src='<?php echo $row["Image"]; ?>' alt='Image du logement'> -->
+                                <img class='img_logement' src='../assets/<?php echo $row["image1"]; ?>' alt="image logement">
                                 <h2><?php echo $row["Titre"]; ?></h2>
                             </a>
                         </li>
@@ -72,7 +71,7 @@
                                 <a href='reservation.php?id=<?php echo $row["ID"]; ?>'></a>
 
                                
-                                <img src='<?php echo $row["Image"]; ?>' alt='Image du logement'><br>
+                                <img src='../assets/<?php echo $row["image1"]; ?>'><br>
                                 <h2><?php echo $row["Titre"]; ?></h2>
                                 <p><span>Début :</span><?php echo $row["Date_depart"]; ?></p>
                                 <p><span>Fin : </span><?php echo $row["Date_arrivée"]; ?></p>
@@ -97,5 +96,5 @@
 <link rel = "stylesheet" href ="css js/style.css">
 </html>
 
-<?php include'components/footer.php'
+<?php include 'components/footer.php'
 ?>
