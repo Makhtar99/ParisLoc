@@ -1,3 +1,5 @@
+
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -47,23 +49,19 @@
 
 .middle_content {
     display: flex;
-    justify-content: space-between;
     margin: 90px 0;
 }
 
 .middle_content p {
     font-family: 'Poppins';
     font-size: 20px;
-    width: 50%;
+    width: 80%;
 }
 
 .details_logement {
+    font-size: 20px;
+    margin-top: 75px;
     font-family: 'Poppins';
-    background: white;
-    padding: 30px;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
 }
 
 .details_logement h2 {
@@ -71,76 +69,84 @@
     font-weight: bold;
     margin: 12px 0;
 }
- 
-.details_logement .reservation {
-    text-decoration: none;
-    background: #222221;
-    color: white;
-    font-weight: bold;
-    padding: 25px;
+
+.reservation {   
+    width: 350px;
+    background: white;
+    padding: 30px;
     border-radius: 30px;
-    margin-top: 30px;
+
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
-.avis {
+.reservation ul li {
+    display: flex;
+    flex-direction: column;
+}
+
+.reservation label{
     font-family: 'Poppins';
-    margin: 150px 0;
-}
-
-.avis img {
-    width: 100px;
-}
-
-.avis .title {
-    font-size: 35px;
+    margin: 15px 0;
+    font-size: 20px;
     font-weight: bold;
 }
-
-.avis article {
-    display: flex;
-    align-items: center;
-
-    background: white;
-    margin: 30px 0;
-    padding: 30px;
-    border-radius: 30px;
-}
-.avis .comment {
-    margin-left: 45px;
-}
-
-.avis p {
-    width: 100%;
-    margin-top: 20px;
-}
-
-.avis li h2 {
-    font-size: 20px;
-    font-weight: bold ;
-}
-
-.comment_avis {
-    background: white;
-    border-radius: 30px;
+.reservation input {
+    margin: 10px 0;
+    font-size: 15px;
     padding: 10px;
+    border-radius: 30px;
 }
-
-.comment_avis .input_avis {
-    font-size: 18px;
+.reservation .btn_reservation {
+    margin: 15px;
+    font-size: 20px;
     font-family: 'Poppins';
-    margin-left: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 15px;
+    border-radius: 30px;
+    background: #222221;
 }
 
-.comment_avis .button {
-    background: none;
+.avis {
+   margin-bottom: 100px;
+}
+.avis .commentaire{
+    margin-bottom: 50px;
+}
+.avis h2{
+    font-size: 30px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    margin: 50px 0;
+}
 
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+.avis label {
+    font-size: 20px;
+    font-family: 'poppins';
+}
 
-    margin-right: 2%;
+.avis textarea {
+    border-radius: 15px;
+    width: 100%;
+}
+
+.avis select {
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 30px;
+    background: white;
+    font-size: 20px;
+    font-family: 'poppins';
+}
+
+.avis button{
+    margin: 30px 0;
+    font-family: 'poppins';
+    color: white;
+    padding: 20px 60px;
+    font-size: 20px;
+    background: #222221;
+    border-radius: 30px;
 }

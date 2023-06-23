@@ -9,7 +9,6 @@
     <link rel = "stylesheet" href="css js/style.css">
 </head>
 <body>
-    <h1>Détails et réservation du logement</h1>
 
     <?php
     $servername = "localhost";
@@ -24,7 +23,6 @@
     }
 
     session_start();
-
     if (!isset($_SESSION['user'])) {
         die("Veuillez vous connecter pour effectuer une réservation ou ajouter un avis.");
     }
@@ -120,31 +118,26 @@
     </section>
 
     <section class='middle_content'>
-
-        <p><?php echo $row["Description"]; ?> </p>
-
-        <div class='details_logement'>
-            <ul>
-                <li>
-                    <h2>Arrondissement :</h2>
-                    <span><?php echo $row["localisation"]; ?></span>
-                </li>
+        <div>
+            <p><?php echo $row["Description"]; ?> </p>
+    
+            <div class='details_logement'>
+                
+                        <h2>Arrondissement :</h2>
+                        <span><?php echo $row["localisation"]; ?></span>
         
-                <li>
-                    <h2>Prix :</h2>
-                    <span><?php echo $row["prix"]; ?>€</span>
-                </li>
-                <li>
-                    <h2>Places :</h2>
-                    <span><?php echo $row["capacite"]; ?></span>
-                </li>
-                <li>
-                    <h2>Disponibilités</h2>
-                    <span>du <?php echo $row["Date_depart"]; ?> au <?php echo $row["Date_arrivée"]; ?> </span>
-                </li>
-            </ul>
-        </div>
-    </section>
+                        <h2>Prix :</h2>
+                        <span><?php echo $row["prix"]; ?>€</span>
+                
+                        <h2>Places :</h2>
+                        <span><?php echo $row["capacite"]; ?></span>
+                    
+                        <h2>Disponibilités :</h2>
+                        <span>du <?php echo $row["Date_depart"]; ?> au <?php echo $row["Date_arrivée"]; ?> </span>
+
+            </div>
+        </div>    
+   
             <?php
 
             // Vérification de la réservation
@@ -158,15 +151,27 @@
             } else {
                 ?>
                 <form method="POST" action="">
-                    <input type="hidden" name="reserver" value="true">
-                    <label for="Date_depart">Date d'arrivée :</label>
-                    <input type="date" id="Date_depart" name="Date_depart" required><br>
-                    <label for="Date_arrivée">Date de fin :</label>
-                    <input type="date" id="Date_arrivée" name="Date_arrivée" required><br>
-                    <label for="Nombre_personnes">Nombre de personnes :</label>
-                    <input type="number" id="Nombre_personnes" name="Nombre_personnes" required><br>
-                    <button class='reservation' type="submit">Réserver</button>
+                    <div class="reservation">
+                        <ul>
+                            <input type="hidden" name="reserver" value="true">
+                            <li>
+                                <label for="Date_depart">Date d'arrivée :</label>
+                                <input type="date" id="Date_depart" name="Date_depart" required>
+                            </li>
+                            <li>
+                                <label for="Date_arrivée">Date de fin :</label>
+                                <input type="date" id="Date_arrivée" name="Date_arrivée" required>                  
+                            </li>
+                            <li>
+                                <label for="Nombre_personnes">Nombre de personnes :</label>
+                                <input type="number" id="Nombre_personnes" name="Nombre_personnes" required>
+                            </li>
+                        </ul>
+                        <button class='btn_reservation' type="submit">Réserver</button>
+                    </div>
                 </form>
+
+    </section>
                 
                 <?php if (isset($_POST['supprimer'])) {
                 $logementId = $_GET['id'];
@@ -193,22 +198,32 @@
 
             // Formulaire de commentaire et de note
             ?>
-            <h3>Ajouter un avis :</h3>
-            <form method="POST" action="">
-                <input type="hidden" name="commenter" value="true">
-                <label for="commentaire">Commentaire :</label><br>
-                <textarea id="commentaire" name="commentaire" rows="4" cols="50" required></textarea><br>
-                <label for="note">Note :</label>
-                <select id="note" name="note" required>
-                    <option value="1">1 étoile</option>
-                    <option value="2">2 étoiles</option>
-                    <option value="3">3 étoiles</option>
-                    <option value="4">4 étoiles</option>
-                    <option value="5">5 étoiles</option>
-                </select><br>
-                <button class='button' type="submit">Envoyer</button>
-                <img src="img/arrow-small-black.svg" alt="">
-            </form>
+            <div class='avis'>
+                <h2>Ajouter un avis</h2>
+                <form method="POST" action="">
+
+                    <input type="hidden" name="commenter" value="true">
+                    <div class='commentaire'>
+                        <label for="commentaire">Commentaire :</label><br>
+                        <textarea id="commentaire" name="commentaire" rows="4" cols="50" required></textarea><br>
+                    </div>
+
+                    <div class='note'>
+                        <label for="note">Note :</label>
+                        <select id="note" name="note" required>
+                            <option value="1">1 étoile</option>
+                            <option value="2">2 étoiles</option>
+                            <option value="3">3 étoiles</option>
+                            <option value="4">4 étoiles</option>
+                            <option value="5">5 étoiles</option>
+                        </select>
+                    </div>
+
+                    <button class='button' type="submit">Envoyer</button>
+                    <img src="img/arrow-small-black.svg" alt="">
+
+                </form>
+            </div>
             <?php
 
             // Affichage des commentaires

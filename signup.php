@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if (isset($_SESSION["user"])) {
@@ -12,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
     $passwordRepeat = $_POST["repeat_password"];
-
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
     $errors = [];
 
@@ -59,7 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             echo "<div class='alert alert-danger'> $error</div>";
         }
     } else {
-        $sql = "INSERT INTO users (username, name, familyname, email, password) VALUES (?, ?, ?, ?, ?)";
+        print('here');
+        $sql = "INSERT INTO users (username, Name, Familyname, email, password) VALUES (?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$username, $Name, $Familyname, $email, $passwordHash]);
         echo "<div class='alert alert-success'> You are registered successfully.</div>";

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,88 +12,92 @@
 <body>
     <header>
         <div class="wrapper">
-            <h1>
-                <a href="">
-                    <img
-                    class="logo"
-                    src="assets/Logo.svg"
-                    alt="logo">
-                </a>
-            </h1>
-
-            <div id="mySidenav" class="sidenav">
-                <a id="closeBtn" href="#" class="close">×</a>
+            <div>
+                <a href="welcome.php"><img class="logo" src="assets/Logo.svg" alt="logo"></a>
+                <ion-icon id="showButton" name="menu-outline"></ion-icon>
+            </div>
+            <div id="sidebar">
+                <ion-icon name="close-outline" id="closeButton"></ion-icon>
                 <ul>
-                    <li><a href="#">Mon profil</a></li>
+                    <li><a href="#">Ajouter un logement</a></li>
+                    <li><a href="#">Reservations</a></li>
+                    <li><a href="#">Messagerie</a></li>
+                    <li><a href="#">Clients</a></li>
                 </ul>
             </div>
-
-                <a href="#" id="openBtn">
-                <span class="burger-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </span>
-                </a>
         </div>
-    
     </header>
 
-<script>
-    var sidenav = document.getElementById("mySidenav");
-    var openBtn = document.getElementById("openBtn");
-    var closeBtn = document.getElementById("closeBtn");
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-openBtn.onclick = openNav;
-closeBtn.onclick = closeNav;
+    <script>
+        var sidebar = document.getElementById("sidebar");
+        var showButton = document.getElementById("showButton");
+        var closeButton = document.getElementById("closeButton");
 
-/* Set the width of the side navigation to 250px */
-function openNav() {
-  sidenav.classList.add("active");
-}
+        showButton.addEventListener("click", function() {
+            sidebar.style.transform = "translateX(0)";
+        });
 
-/* Set the width of the side navigation to 0 */
-function closeNav() {
-  sidenav.classList.remove("active");
-}
-</script>
+        closeButton.addEventListener("click", function() {
+            sidebar.style.transform = "translateX(100%)";
+        });
+    </script>
 
-<style>
-    header{
-    background: white;
-	width: 100%;
-    padding: 15px 0;
-}
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-header .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        header {
+            background: white;
+            width: 100%;
+            padding: 15px 0;
+            display: flex;
+        }
 
+        header div {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-header .logo{
-    width: 100px;
-    height: 60px;
-}
+        #showButton{
+            font-size: 60px;
+        }
+        #closeButton{
+            font-size: 28px;
+        }
+        ul li a {
+            list-style: none;
+            width: 100%;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            text-decoration: underline 0.15em rgba(255, 255, 255, 0);
+        }
+        ul li {
+            
+            margin: 15px 20px;
+        }
 
-
-header .search_bar {
-    display: flex;
-    align-items: center;
-    
-
-    background: rgba(255, 255, 255, 0.826);
-    border-radius: 30px;
-} 
-
-header .search_bar span {
-    font-family: 'Poppins';
-    margin: 0 40px;
-} 
-
-header .search_bar hr {
-    height: 30px;
-}
-
-</style>
+        #sidebar {
+            background-color: #f3f3f3;
+            color: #333;
+            padding: 20px;
+            position: fixed;
+            display: block;
+            top: 0;
+            right: 0;
+            width: 250px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 99;
+        }
+    </style>
+</body>
+</html>
