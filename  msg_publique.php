@@ -1,4 +1,4 @@
-<?php include"header.php"
+<?php include "header.php"
 ?>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@200&display=swap" rel="stylesheet">
     <div class='wrapper'>
@@ -29,7 +29,7 @@
         </div>
     </div>
 
-<?php include"footer.php"
+<?php include "footer.php"
 ?>
 
 <style>

@@ -30,10 +30,9 @@
             <div id="mySidenav" class="sidenav">
                 <a id="closeBtn" href="#" class="close">×</a>
                 <ul>
-                    <li><a href="#">Ajouter un logement</a></li>
+                    <li><a href="./admin/ajoutlogement.php">Ajouter un logement</a></li>
                     <li><a href="#">Reservations</a></li>
                     <li><a href="#">Messagerie</a></li>
-                    <li><a href="#">Clients</a></li>
                 </ul>
             </div>
         </div>

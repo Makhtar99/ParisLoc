@@ -12,6 +12,7 @@
         $dbname = "Airbnb";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
+        session_start();
         if ($_SESSION['user']['role'] !== 'Admin') {
             die("Vous n'avez pas les autorisations nécessaires pour accéder à cette page.");
         }
