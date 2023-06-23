@@ -15,18 +15,28 @@
     src: url("MonteCarlo/MonteCarlo-Regular.ttf");
   }
 header{
-    width: 90%;
-    margin-right: 5%;
-    margin-left: 7%;
+    width: 100%;
     display: flex;
     height: 100px;
     align-items: center;
+    justify-content: center;
+}
+header a {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    text-decoration: none;
+    font-style: none;
+    display: flex;
+}
+header a img{
+    margin: 0;
 }
     </style>
 </head>
 <body>
         <header href="Homepage.php">
-            <img src="components/logo.png"  alt="UNCO">
+            <a href="../welcome.php"><img src="components/logo2.png"  alt="UNCO"></a>
         </header>
     <br>
 </body>
