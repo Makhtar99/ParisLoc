@@ -110,12 +110,12 @@
 
         <section class='img'>
 
-            <img class='big_img' src='../assets/<?php echo $row["image1"]; ?>' alt="">
+            <img class='big_img' src='./assets/<?php echo $row["image1"]; ?>' alt="">
 
             <div class='side_img'>
 
-            <img class='small_img' src='../assets/<?php echo $row["image2"]; ?>' alt="">
-            <img class='small_img' src='../assets/<?php echo $row["image3"]; ?>'>
+            <img class='small_img' src='./assets/<?php echo $row["image2"]; ?>' alt="">
+            <img class='small_img' src='./assets/<?php echo $row["image3"]; ?>'>
 
 
         </section>

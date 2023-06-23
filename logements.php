@@ -42,7 +42,7 @@
                         <li>
                             <a href='reservation.php?id=<?php echo $row["ID"]; ?>'>
                                 
-                                <img class='img_logement' src='../assets/<?php echo $row["image1"]; ?>' alt="image logement">
+                                <img class='img_logement' src='./assets/<?php echo $row["image1"]; ?>' alt="image logement">
                                 <h2><?php echo $row["Titre"]; ?></h2>
                             </a>
                         </li>
@@ -71,7 +71,7 @@
                                 <a href='reservation.php?id=<?php echo $row["ID"]; ?>'></a>
 
                                
-                                <img src='../assets/<?php echo $row["image1"]; ?>'><br>
+                                <img src='https://images.pexels.com/photos/6292341/pexels-photo-6292341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'><br>
                                 <h2><?php echo $row["Titre"]; ?></h2>
                                 <p><span>Début :</span><?php echo $row["Date_depart"]; ?></p>
                                 <p><span>Fin : </span><?php echo $row["Date_arrivée"]; ?></p>

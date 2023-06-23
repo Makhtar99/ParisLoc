@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <link rel = "stylesheet" href ="../css js/dashboard.css">
+    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <head>
         <title>Liste des réservations</title>
     </head>
@@ -82,7 +84,7 @@
         if ($result->num_rows > 0) {
             ?>
             <table>
-                <tr>
+                <tr class ="titre">
                     <th>ID</th>
                     <th>Nom d'utilisateur</th>
                     <th>Action</th>
@@ -93,7 +95,7 @@
                     <tr>
                         <td><?php echo $row["id"]; ?></td>
                         <td><?php echo $row["username"]; ?></td>
-                        <td>
+                        <td class ="bouton">
                             <form method="POST" action="">
                                 <input type="hidden" name="userId" value="<?php echo $row["id"]; ?>">
                                 <input type="submit" name="delete" value="Supprimer">
